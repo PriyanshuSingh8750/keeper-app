@@ -1,0 +1,207 @@
+:root {
+  --bg-color: #f5f9ff; /* Light background for contrast with pattern */
+  --text-color: #333; /* Dark text for readability */
+  --header-bg: #4caf50; /* Green header */
+  --header-text: #ffffff; /* White text */
+  --note-bg: #ffffff; /* Clean white for notes */
+  --note-border: #4caf50; /* Green border for notes */
+  --button-bg: #007bff; /* Blue buttons */
+  --button-text: #ffffff; /* White button text */
+  --footer-bg: #4caf50; /* Footer background */
+  --footer-text: #ffffff; /* Footer text */
+  --pattern: url("https://www.transparenttextures.com/patterns/diagmonds-light.png");
+}
+/* Theme Toggle Button Styles */
+/* Theme Toggle Button */
+.theme-toggle-button {
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  font-size: 1.8em;
+  color: var(--text-color);
+  cursor: pointer;
+  transition: color 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.theme-toggle-button:hover {
+  transform: scale(1.2);
+  color: var(--header-bg);
+}
+
+/* Adjust Colors for Dark Mode */
+body.dark-mode .theme-toggle-button {
+  color: #ffcc00; /* Sun color */
+}
+
+body.dark-mode .theme-toggle-button:hover {
+  color: #ffd700; /* Brighter hover color for sun */
+}
+
+body.dark-mode {
+  --bg-color: #181818; /* Solid dark background */
+  --text-color: #f1f1f1; /* Light text */
+  --header-bg: #222222; /* Darker header for contrast */
+  --header-text: #4caf50; /* Green header text */
+  --note-bg: #2a2a2a; /* Dark notes */
+  --note-border: #4caf50; /* Blue note borders */
+  --button-bg: #1e88e5; /* Green buttons */
+  --button-text: f1f1f1; /* Dark button text */
+  --footer-bg: #222222; /* Footer matches dark theme */
+  --footer-text: #66bb6a; /* Green footer text */
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background-color: var(--bg-color);
+  background-image: var(--pattern); /* Adding the cute pattern */
+  background-size: 12%; /* Adjust the size of the pattern */
+  color: var(--text-color);
+  transition: background 0.3s, color 0.3s;
+  padding: 0 16px;
+}
+
+header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--header-bg);
+  color: var(--header-text);
+  padding: 16px 32px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+  color: var(--header-text);
+  font-weight: bold;
+  font-size: 1.6em;
+}
+
+footer {
+  position: fixed;
+  text-align: center;
+  bottom: 0;
+  width: 100%;
+  background: var(--footer-bg);
+  color: var(--footer-text);
+  padding: 10px 0;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+  font-size: 0.9em;
+  transition: background 0.3s, color 0.3s;
+}
+
+.note {
+  background: var(--note-bg);
+  border-left: 4px solid var(--note-border);
+  color: var(--text-color);
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 16px;
+  width: 280px;
+  margin: 16px;
+  float: left;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.note:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  border-left: 6px solid var(--note-border);
+}
+
+.note h1 {
+  font-size: 1.3em;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+.note p {
+  font-size: 1.1em;
+  margin-bottom: 10px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.note button {
+  position: relative;
+  float: right;
+  margin-right: 10px;
+  color: var(--note-border);
+  border: none;
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+  outline: none;
+  background: transparent;
+  transition: transform 0.2s, color 0.2s;
+}
+
+.note button:hover {
+  transform: scale(1.2);
+  color: var(--button-bg);
+}
+
+form.create-note {
+  position: relative;
+  width: 500px;
+  margin: 40px auto 20px auto;
+  background: var(--note-bg);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+form.create-note input,
+form.create-note textarea {
+  width: 100%;
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 8px;
+  outline: none;
+  font-size: 1.2em;
+  font-family: "Roboto", sans-serif;
+  resize: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  background: var(--note-bg);
+  color: var(--text-color);
+}
+
+form.create-note input:focus,
+form.create-note textarea:focus {
+  border-color: var(--button-bg);
+  box-shadow: 0 0 8px rgba(29, 209, 161, 0.4);
+}
+
+form.create-note button {
+  position: absolute;
+  right: 18px;
+  bottom: -18px;
+  background: var(--button-bg);
+  color: var(--button-text);
+  border: none;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  outline: none;
+  transition: background 0.3s, transform 0.2s;
+}
+
+form.create-note button:hover {
+  background: #10ac84;
+  transform: translateY(-2px);
+}
